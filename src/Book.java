@@ -36,6 +36,17 @@ public class Book {
             System.out.println("Invalid price. Price set a non-negative value.");
         }
     }
+    public void applyDiscount(double discount)
+    {
+        if (discount >= 0 && discount <= 100)
+        {
+            this.price = price * (1 - discount/100);
+        }
+        else
+        {
+            System.out.println("Discount is invalid");
+        }
+    }
 
     // Main method to test the Book class
     public static void main( String arg[]) {
@@ -43,10 +54,9 @@ public class Book {
         unknownBook.displayDetails();
 
         Book hp1Book = new Book("Harry Potter and the Philosopher's Stone", "J.K. Rowling", 350.00);
+        hp1Book.applyDiscount(12.5);
         hp1Book.displayDetails();
 
         hp1Book.updatePrice(32000.00);
         hp1Book.displayDetails();
     }
-}
-
